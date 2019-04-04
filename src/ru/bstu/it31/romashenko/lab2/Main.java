@@ -5,20 +5,28 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import org.apache.logging.log4j.*;
 
-/** @author Ромащенко Н.А.
+/**
+ * <p>Главный класс программы.</p>
  *
- * @version 1. 21.02.19
+ * @author Ромащенко Н.А.
+ * @version 1.0
+ * Дата: 21.02.19
  *
  * Имя класса: Main
- *
  * Назначение: Дана последовательность целых чисел а1,а2,...,ап. Выяснить, какое число встречается раньше — положительное или отрицательное.
  */
-
-
 public class Main {
+    /** */
     static final Logger Logger = LogManager.getLogger(Main.class);
 
+    /**
+     * <p>Точка входа в программу</p>
+     *
+     * @param args - аргументы для метода
+     */
     public static void main(String[] args) throws IOException {
+        Logger.debug("Lets");
+
         System.out.println("Работа с массивом.");
         System.out.println("\t> 1. Ввести с клавиатуры;");
         System.out.println("\t> 2. Считать из файла;");
@@ -27,14 +35,18 @@ public class Main {
         // 1 - клавиатура
         // 2 - файл
         // 9 - выход
-        //
+
         int intArray[];
-        //
+
         int k = 0;
+
         // Инициализация объекта "Сканер"
+        Logger.debug("Инициализация сканера");
         Scanner scanner = new Scanner(System.in);
-        //
+
         int mode = scanner.nextInt();
+        Logger.debug("Пользователь ввел mode = " + mode);
+
         // Обработка режима работы
         switch (mode) {
             // Клавиатура
@@ -44,17 +56,18 @@ public class Main {
                 System.out.print("Количество символов в массиве: ");
                 //
                 k = scanner.nextInt();
-                Logger.info("Пользователь ввел k = " + k);
+                Logger.debug("Пользователь ввел k = " + k);
                 //
                 scanner.close();
                 //
                 intArray = new int[k];
-                Logger.info("Выделена память под массив из k = " + k);
+                Logger.debug("Выделена память под массив из k = " + k);
                 //
                 intArray = getArrayRand(k, -100, 100);
-                Logger.info("Инициализирован массив");
+                Logger.debug("Инициализирован массив");
                 break;
             }
+
             // Файл
             case 2: {
                 Logger.info("Пользователь выбрал режим работы 'чтение из файла'");
@@ -71,10 +84,10 @@ public class Main {
                 String[] numbers = text.split("([\\s])");
                 //
                 k = Integer.parseInt(numbers[0]);
-                Logger.info("Считано из файла: k = " + k);
+                Logger.debug("Считано из файла: k = " + k);
                 //
                 intArray = new int[k];
-                Logger.info("Выделена память под массив из k = " + k);
+                Logger.debug("Выделена память под массив из k = " + k);
                 //
                 int pos = 1;
                 //
@@ -85,14 +98,16 @@ public class Main {
                         intArray[i] = Integer.parseInt(numbers[pos]);
                     }
                 }
-                Logger.info("Инициализирован массив");
+                Logger.debug("Инициализирован массив");
                 break;
             }
+
             // Выход
             case 9: {
                 Logger.info("Пользователь выбрал режим работы 'выход'");
                 return;
             }
+
             // Ошибка ввода
             default: {
                 Logger.warn("Выбран не верный параметр, программа завершила свою работу.");
@@ -102,26 +117,38 @@ public class Main {
         }
         printArrayConsole(intArray, k);
         //
-        checkEx(intArray, k);
-        Logger.info("Программа без ошибок завершилась.");
+        checkEx(intArray);
+        Logger.debug("The end.");
     }
 
-    //
+    /**
+     * Метод для получения массива
+     *
+     * @param size размер массива
+     * @param rMin левая граница рандома
+     * @param rMax правая граница рандома
+     * @return возврат массива рандомного
+     */
     private static int[] getArrayRand(int size, int rMin, int rMax) {
-        Logger.info("Начало генерации случайных чисел: [" + rMin + ";" + rMax + "].");
+        Logger.debug("Начало генерации случайных чисел: [" + rMin + ";" + rMax + "].");
         int intArray[] = new int[size];
 
         for (int i = 0; i < intArray.length; i++) {
             // рандом в рэндже [rMin;rMax]
             intArray[i] = (int) (Math.random() * (rMax - rMin + 1) + rMin);
         }
-        Logger.info("Успешная генерация");
+        Logger.debug("Успешная генерация");
         return intArray;
     }
 
-    //
+    /**
+     * Метод для вывода в консоль массива
+     *
+     * @param arr  одномерный массив
+     * @param size размер массива
+     */
     private static void printArrayConsole(int[] arr, int size) {
-        Logger.info("Начало вывода элементов массива на консоль");
+        Logger.debug("Начало вывода элементов массива на консоль");
         for (int i = 0; i < arr.length; ++i) {
             if ((i + 1) % 5 == 0) {
                 System.out.println("A[" + i + "] = " + arr[i] + '\t');
@@ -132,16 +159,21 @@ public class Main {
         System.out.println();
     }
 
-    //
-    private static void checkEx(int[] intArray, int k) {
-        Logger.info("Проверка на положительность или отрицатльность началась");
+    /**
+     * Метод для проверки массива согласно заданию
+     *
+     * @param intArray одномерный массив
+     */
+    private static void checkEx(int[] intArray) {
+        Logger.debug("Проверка на положительность или отрицатльность началась");
+
         for (int i = 0; i < intArray.length; ++i) {
             if (0 != intArray[i]) {
                 if (0 > intArray[i]) {
-                    Logger.info("Первее встречается отрицательное число. Индекс: " + i);
+                    Logger.debug("Первее встречается отрицательное число. Индекс: " + i);
                     System.out.println("Первее встречается отрицательное число. Индекс: " + i);
                 } else {
-                    Logger.info("Первее встречается положительное число. Индекс: " + i);
+                    Logger.debug("Первее встречается положительное число. Индекс: " + i);
                     System.out.println("Первее встречается положительное число. Индекс: " + i);
                 }
                 return;
