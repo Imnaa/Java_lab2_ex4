@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07ba91c1-5c90-48ba-9fc5-8d6f7d9492b3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/bstu/it31/romashenko/lab2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/bstu/it31/romashenko/lab2/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="07ba91c1-5c90-48ba-9fc5-8d6f7d9492b3" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +15,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/bstu/it31/romashenko/lab2/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="164" column="19" selection-start-line="164" selection-start-column="19" selection-end-line="164" selection-end-column="19" />
+            <state relative-caret-position="224">
+              <caret line="152" column="22" lean-forward="true" selection-start-line="152" selection-start-column="22" selection-end-line="152" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,12 +135,12 @@
       <workItem from="1550820250552" duration="1199000" />
       <workItem from="1550837325781" duration="149000" />
       <workItem from="1550837967648" duration="19000" />
-      <workItem from="1554398808717" duration="5301000" />
+      <workItem from="1554398808717" duration="5383000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8047000" />
+    <option name="totallyTimeSpent" value="8129000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
@@ -265,8 +262,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/bstu/it31/romashenko/lab2/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="164" column="19" selection-start-line="164" selection-start-column="19" selection-end-line="164" selection-end-column="19" />
+        <state relative-caret-position="224">
+          <caret line="152" column="22" lean-forward="true" selection-start-line="152" selection-start-column="22" selection-end-line="152" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
